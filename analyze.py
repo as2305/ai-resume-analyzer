@@ -1,7 +1,5 @@
 import os
 from google import genai
-import asyncio
-import edge_tts
 from key import gemini_key
 
 model = "gemini-2.5-flash"
@@ -28,11 +26,4 @@ def analyze_pdf(file, job_title):
         model=model,
         contents=[pdf, prompt]
     )
-    print(response.text)
-
-
-
-user_input = input("Enter file name: ")
-title = input("Enter target job title: ")
-analyze_pdf(user_input, title)
-
+    return response.text
